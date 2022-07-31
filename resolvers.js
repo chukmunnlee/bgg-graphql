@@ -32,10 +32,10 @@ export const resolvers = {
 	},
 
 	Game: {
-		comments: (game) => getCommentsByGame(game, { gid: game.gid })
+		comments: (game) => getCommentsByGame(game, { gid: game.id })
 	},
 
 	Comment: {
-		game: (comment) => getGame(comment, { gameId: comment.gid })
+		game: (comment) => getGame(comment, { gameId: comment.id })
 	}
 }

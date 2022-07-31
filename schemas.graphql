@@ -11,7 +11,7 @@ type Query {
 }
 
 type Game {
-	gid: ID!
+	id: ID!
 	name: String!
 	year: Int
 	ranking: Int
@@ -22,7 +22,7 @@ type Game {
 }
 
 type Comment {
-	c_id: ID!
+	id: ID!
 	user: String!
 	rating: Int!
 	c_text: String!
