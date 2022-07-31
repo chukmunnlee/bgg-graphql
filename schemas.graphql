@@ -1,3 +1,35 @@
+schema {
+	query: Query 
+}
+
 type Query {
-	greetings: String
+	games(pagination: Pagination): [ Game! ]
+	game(gameId: ID!): Game
+	comments(pagination: Pagination): [ Comment! ]
+	commentsByGame(gameId: ID!): [ Comment! ]
+	commentsByUser(userId: String!): [ Comment! ]
+}
+
+type Game {
+	gid: ID!
+	name: String!
+	year: Int
+	ranking: Int
+	users_rated: Int
+	url: String
+	image: String
+	comments: [ Comment! ]
+}
+
+type Comment {
+	c_id: ID!
+	user: String!
+	rating: Int!
+	c_text: String!
+	game: Game!
+}
+
+input Pagination {
+	offset: Int = 0
+	limit: Int = 20
 }
