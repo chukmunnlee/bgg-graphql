@@ -5,7 +5,9 @@ const Games = db.table('game')
 const Comments = db.table('comment')
 
 const getGames = (root, args) => {
-	return []
+	const { offset, limit } = args.pagination
+	return Games.findAll()
+		.then(result => result.slice(offset, offset + limit))
 }
 
 const getGame = (root, args) => {
